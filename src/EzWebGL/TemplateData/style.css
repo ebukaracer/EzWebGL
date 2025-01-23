@@ -1,0 +1,130 @@
+body {
+  padding: 0;
+  margin: 0
+}
+
+.dark-theme {
+  background-color: #222;
+  color: #fff;
+}
+
+.light-theme {
+  background-color: #fff;
+  color: #000;
+}
+
+#unity-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.unity-desktop{
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%)
+}
+
+.unity-mobile {
+  width: 100%;
+  height: 100%;
+}
+
+#unity-canvas[data-pixel-art="true"] {
+  image-rendering: pixelated;
+  background: {{{ BACKGROUND_COLOR }}}
+}
+
+#unity-canvas[data-pixel-art="false"] {
+  background: {{{ BACKGROUND_COLOR }}}
+}
+
+#unity-loader-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loader-icon{
+  border: 10px solid #a9a9a9;
+  border-top: 10px solid #1EAED3;
+  border-radius: 60%;
+  width: 30px;
+  height: 30px;
+  animation: spin 0.8s linear infinite;
+}
+
+#loader-text{
+	/*color: #a9a9a9;*/
+	color: #1EAED3;
+	text-align: center;
+	font-family: monospace;
+	font-style: italic;
+	margin-top: 5px;
+}
+
+.custom-border{
+	border-style: outset;
+	border-width: medium;
+	border-color: {{{ BORDER_COLOR || 'white' }}}
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#unity-footer[hide-footer="false"] {
+  margin-top: 5px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 114px;
+}
+
+#unity-footer[hide-footer="true"] {
+  display: none;
+}
+
+#unity-theme-button {
+  background: url('theme-button.png') no-repeat center;
+}
+
+#unity-fullscreen-button {
+  background: url('fullscreen-button.png') no-repeat center;
+}
+
+#unity-quit-button {
+  background: url('quit-button.png') no-repeat center;
+}
+
+#unity-theme-button,
+#unity-quit-button,
+#unity-fullscreen-button {
+  width: 35px;
+  height: 35px;
+  /* margin-right: 10px; */
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+#unity-theme-button:hover,
+#unity-quit-button:hover,
+#unity-fullscreen-button:hover {
+  opacity: 0.7;
+}
+
+#unity-warning {
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  transform: translate(-50%);
+  background: gray; /*Would be overriden, depending on the type of exception*/
+  padding: 10px;
+  display: none;
+}

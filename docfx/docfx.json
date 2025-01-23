@@ -1,0 +1,36 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{md,yml}"
+        ],
+        "exclude": [
+          "_site/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "output": "_site",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appName": "EzWebGL",
+      "_appTitle": "Unity Package",
+      "_appFooter": "&copy; Racer",
+      "_appLogoPath": "images/openupm-icon.png",
+      "_appFaviconPath": "images/racer-logo.svg",
+      "_enableSearch": false,
+      "pdf": false
+    }
+  }
+}

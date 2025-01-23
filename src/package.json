@@ -1,0 +1,21 @@
+{
+  "name": "com.racer.ezwebgl",
+  "displayName": "EzWebGL",
+  "version": "3.0.0",
+  "unity": "2020.3",
+  "description": "Simple yet Sleek WebGL Template for Unity HTML Games.\n\nMost applicable to unity games hosted on itch.io.",
+  "documentationUrl": "https://ebukaracer.github.io/EzWebGL",
+  "licensesUrl": "https://ebukaracer.github.io/ebukaracer/md/LICENSE.html",
+  "changelogUrl": "https://github.com/ebukaracer/EzWebGL/tags",
+  "author": {
+    "name": "Racer",
+    "url": "https://github.com/ebukaracer"
+  },
+  "category": "Template",
+  "keywords": [
+    "webgl",
+    "unity-package",
+    "html",
+    "template"
+  ]
+}

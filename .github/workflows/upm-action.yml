@@ -1,0 +1,51 @@
+name: Depoly upm pkg to separate branch
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Git configuration
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      # Step 3: Copy files to a temporary location
+      - name: Copy src/ to a temporary location
+        run: |
+          mkdir temp_src
+          cp -r src/* temp_src/
+
+      # Step 4: Create and switch to an orphan branch
+      - name: Switch to orphan branch
+        run: |
+          git checkout --orphan upm
+          git reset --hard
+
+      # Step 5: Copy files from the temporary location to the root
+      - name: Copy files to root
+        run: |
+          cp -r temp_src/* .
+          rm -rf temp_src/
+
+      # Step 6: Commit and push changes to the upm branch
+      - name: Commit and push to UPM branch
+        run: |
+          git add .
+          git commit -m "upm files(latest)"
+          git push origin upm --force
