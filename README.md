@@ -5,7 +5,7 @@ Simple yet sleek WebGL template for Unity HTML games.
 
 ![gif](https://raw.githubusercontent.com/ebukaracer/ebukaracer/unlisted/EzWebGL-Images/A.gif)
 
-[Read Docs](https://ebukaracer.github.io/EzWebGL)
+[View in DocFx](https://ebukaracer.github.io/EzWebGL)
 
 ## Installation
 - Hit `(+)`, choose `Add package from Git URL`(Unity 2019.4+)
@@ -15,7 +15,7 @@ Simple yet sleek WebGL template for Unity HTML games.
 *Alternatively check out [this](https://ebukaracer.github.io/ebukaracer/md/INSTALLGUIDE.html)*
 
 ## Setup
-After installation, navigate to `Racer > EzWebGL > Import Template` to import the WebGL template.
+After installation, navigate to `Racer > EzWebGL > Import Template(Force)` to import or update the WebGL template.
 
 ## Usage Guide
 
