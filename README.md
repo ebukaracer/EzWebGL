@@ -1,18 +1,17 @@
 # EzWebGL
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blue)](http://makeapullrequest.com) [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](https://ebukaracer.github.io/ebukaracer/md/LICENSE.html)
 
-Simple yet sleek WebGL template for Unity HTML games.
+Simple yet Sleek WebGL Template for Unity Web Games.
 
 ![gif](https://raw.githubusercontent.com/ebukaracer/ebukaracer/unlisted/EzWebGL-Images/A.gif)
 
 [View in DocFx](https://ebukaracer.github.io/EzWebGL)
 
 ## Installation
-- Hit `(+)`, choose `Add package from Git URL`(Unity 2019.4+)
-- Paste the `URL` for this package inside the box: https://github.com/ebukaracer/EzWebGL.git#upm
-- Hit `Add`
-
-*Alternatively check out [this](https://ebukaracer.github.io/ebukaracer/md/INSTALLGUIDE.html)*
+_Inside the Unity Editor using the Package Manager:_
+- Click the **(+)** button in the Package Manager and select **"Add package from Git URL"** (requires Unity 2019.4 or later).
+-  Paste the Git URL of this package into the input box: https://github.com/ebukaracer/EzWebGL.git#upm
+-  Click **Add** to install the package.
 
 ## Setup
 After installation, navigate to `Racer > EzWebGL > Import Template(Force)` to import or update the WebGL template.
@@ -33,7 +32,7 @@ To use this template with its default settings, select `EzWebGL` from the listed
 - `Border colour:` Changes the border colour of the container/frame and footer(if not hidden). 
 	- Value:  `transparent`, hex-colour codes e.g. `#FF0000`, `#0000FF`, etc, hardcoded colours e.g. `red`, `blue`, etc.
 
-### Notes
+## Notes
 - To change the default background colour navigate to: `Player Settings > Splash Image > Background > Background Color`. Any colour you set there would be applied to this template, you can observe it during the initial load of your game: 
    ![img](https://raw.githubusercontent.com/ebukaracer/ebukaracer/unlisted/EzWebGL-Images/C.png)
 
