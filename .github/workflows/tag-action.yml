@@ -1,0 +1,33 @@
+name: Tag Package
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/package.json'
+
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Do not create the tag'
+        required: false
+        type: boolean
+        default: true
+
+      tag_prefix:
+        description: 'Tag prefix'
+        required: false
+        type: string
+        default: 'v'
+
+permissions:
+  contents: write
+
+jobs:
+  tag:
+    uses: ebukaracer/gh-workflows/.github/workflows/tag-package.yml@main
+    with:
+      package_json: 'src/package.json'
+      tag_prefix: ${{ inputs.tag_prefix || 'v' }}
+      dry_run: ${{ inputs.dry_run || false }}

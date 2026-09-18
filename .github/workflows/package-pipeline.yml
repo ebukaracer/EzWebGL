@@ -1,0 +1,77 @@
+name: EzWebGL Package Pipeline
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check-package-changes:
+    runs-on: ubuntu-latest
+
+    outputs:
+      dependencies_changed: ${{ steps.changes.outputs.dependencies_changed }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Check for Elements changes
+        id: changes
+        shell: bash
+        run: |
+          # For manual runs, always allow the package build.
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "dependencies_changed=true" >> "$GITHUB_OUTPUT"
+            echo "Manual run detected. UnityPackage will be built."
+            exit 0
+          fi
+
+          BEFORE="${{ github.event.before }}"
+          AFTER="${{ github.sha }}"
+
+          echo "Checking changes between:"
+          echo "  $BEFORE"
+          echo "  $AFTER"
+
+          if git diff --quiet \
+            "$BEFORE" \
+            "$AFTER" \
+            -- 'src/Dependencies~/EzWebGL/**'; then
+
+            echo "dependencies_changed=false" >> "$GITHUB_OUTPUT"
+            echo "No changes detected"
+          else
+            echo "dependencies_changed=true" >> "$GITHUB_OUTPUT"
+            echo "Changes detected"
+          fi
+
+  deploy-upm:
+    uses: ebukaracer/gh-workflows/.github/workflows/deploy-branch.yml@main
+    with:
+      source_path: 'src'
+      target_branch: 'upm'
+      commit_message: 'upm files (latest)'
+
+  build-unitypackage:
+    needs:
+      - check-package-changes
+      - deploy-upm
+
+    if: needs.check-package-changes.outputs.dependencies_changed == 'true'
+
+    uses: ebukaracer/gh-workflows/.github/workflows/build-unitypackage.yml@main
+    with:
+      target_branch: 'upm'
+      source_path: 'Dependencies~/EzWebGL'
+      unity_import_path: 'Assets/WebGL Templates/EzWebGL'
+      output_path: 'Dependencies~/Package/EzWebGL.unitypackage'

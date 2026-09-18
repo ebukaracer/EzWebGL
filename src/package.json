@@ -1,0 +1,15 @@
+{
+  "name": "com.racer.ezwebgl",
+  "displayName": "EzWebGL",
+  "version": "0.1.0",
+  "unity": "2019.4",
+  "description": "A simple yet sleek WebGL template for Unity web games.",
+  "documentationUrl": "https://ebukaracer.github.io/EzWebGL",
+  "licensesUrl": "https://ebukaracer.github.io/ebukaracer/md/LICENSE.html",
+  "changelogUrl": "https://github.com/ebukaracer/EzWebGL/tags",
+  "author": {
+    "name": "Racer",
+    "url": "https://github.com/ebukaracer"
+  },
+  "category": "Template"
+}
