@@ -73,5 +73,5 @@ jobs:
     with:
       target_branch: 'upm'
       source_path: 'Dependencies~/EzWebGL'
-      unity_import_path: 'Assets/WebGL Templates/EzWebGL'
+      unity_import_path: 'Assets/WebGLTemplates/EzWebGL'
       output_path: 'Dependencies~/Package/EzWebGL.unitypackage'
